@@ -1,3 +1,6 @@
+using tdd_dojo_responsibility_chain.Models;
+using tdd_dojo_responsibility_chain.Services;
+
 namespace tdd_dojo_responsibility_chain;
 
 [TestFixture]
@@ -34,43 +37,4 @@ public class KeyBoardAssembleServiceTests
         Assert.AreEqual("PBT", _keyboard.KeyCapType);
     }
 
-}
-
-public class KeyBoardAssembleService
-{
-    public Keyboard Generate(string brandName, string switchType, string keyCapType)
-    {
-        var keyboard = new Keyboard();
-        keyboard.GetCircuitBoard(brandName);
-        keyboard.SetSwitchType(switchType);
-        keyboard.SetKeyCapType(keyCapType);
-        return keyboard;
-    }
-}
-
-public class Keyboard
-{
-    public string CircuitBoard { get; set; }
-    public string SwitchType { get; set; }
-    public string KeyCapType { get; set; }
-
-    public bool IsIncludeCircuitBoard()
-    {
-        return !string.IsNullOrEmpty(CircuitBoard);
-    }
-
-    public void GetCircuitBoard(string brandName)
-    {
-        CircuitBoard = brandName;
-    }
-
-    public void SetSwitchType(string switchType)
-    {
-        SwitchType = switchType;
-    }
-
-    public void SetKeyCapType(string keyCapType)
-    {
-        KeyCapType = keyCapType;
-    }
 }
