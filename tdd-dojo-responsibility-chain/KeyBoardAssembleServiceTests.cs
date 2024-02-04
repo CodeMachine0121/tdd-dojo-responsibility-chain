@@ -19,21 +19,21 @@ public class KeyBoardAssembleServiceTests
     [Test]
     public void should_get_circuit_board()
     {
-        _keyboard = _keyBoardAssembleService.Generate("Logic", "any_switch", "any_key_cap_type");
+        _keyboard = _keyBoardAssembleService.Generate(new CustomerRequest(){BrandName = "Logic"});
         Assert.AreEqual("Logic", _keyboard.CircuitBoard);
     }
 
     [Test]
     public void should_set_switch()
     {
-        _keyboard = _keyBoardAssembleService.Generate("any_brand_name", "red", "any_key_cap_type");
+        _keyboard = _keyBoardAssembleService.Generate(new CustomerRequest(){SwitchType = "red"});
         Assert.AreEqual("red", _keyboard.SwitchType);
     }
 
     [Test]
     public void should_set_key_cap()
     {
-        _keyboard = _keyBoardAssembleService.Generate("any_brand_name", "any_switch_type", "PBT");
+        _keyboard = _keyBoardAssembleService.Generate(new CustomerRequest(){KeyCapType = "PBT"});
         Assert.AreEqual("PBT", _keyboard.KeyCapType);
     }
 

@@ -5,11 +5,11 @@ namespace tdd_dojo_responsibility_chain.Services;
 
 public class KeyBoardAssembleService
 {
-    public Keyboard Generate(string brandName, string switchType, string keyCapType)
+    public Keyboard Generate(CustomerRequest request)
     {
         var keyboard = new Keyboard();
         var circuitBoardHandler = new CircuitBoardHandler(new SwitchHandler(new KeyCapHandler()));
-        circuitBoardHandler.Generate(brandName, keyboard);
+        circuitBoardHandler.Generate(request, keyboard);
         return keyboard;
     }
 }

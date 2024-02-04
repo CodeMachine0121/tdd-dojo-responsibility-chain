@@ -12,9 +12,9 @@ public class SwitchHandler: IKeyBoardHandler
         _keyCapHandler = keyCapHandler;
     }
 
-    public void Generate(string switchType, Keyboard keyboard)
+    public void Generate(CustomerRequest request, Keyboard keyboard)
     {
-        keyboard.SetSwitchType(switchType);
-        _keyCapHandler.Generate("PBT", keyboard);
+        keyboard.SetSwitchType(request.SwitchType);
+        _keyCapHandler.Generate(request, keyboard);
     }
 }
