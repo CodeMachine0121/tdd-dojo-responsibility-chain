@@ -1,3 +1,4 @@
+using tdd_dojo_responsibility_chain.Handlers;
 using tdd_dojo_responsibility_chain.Models;
 using tdd_dojo_responsibility_chain.Services;
 
@@ -12,7 +13,7 @@ public class KeyBoardAssembleServiceTests
     [SetUp]
     public void SetUp()
     {
-        _keyBoardAssembleService = new KeyBoardAssembleService();
+        _keyBoardAssembleService = new KeyBoardAssembleService(new KeyBoardHandler());
     }
 
     // circuit board -> switch -> key cap
